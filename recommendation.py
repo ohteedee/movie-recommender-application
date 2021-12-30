@@ -70,6 +70,23 @@ def recommend_neighborhood(query, k=10):
     recommendations = scores.head(k).index
     return recommendations
 
+def recommend_random(k=10):
+    """
+    Recommends a list of k random movie ids
+    """
+    recommendations = ratings['movieId'].sample(n=k)
+    return recommendations
+
+def recommend_popular():
+    """
+    Recommend a list of k movie ids that are the most popular
+    """
+    df = ratings.merge(movies, left_on='movieId', right_on='movieId', suffixes=(False, False))
+    recommendations = (df['rating'].groupby(df['movieId']).count()).nlargest(10)
+    recommendations = recommendations.index.values.tolist()
+    # print(recommendations)
+    return recommendations
+
 
 
 

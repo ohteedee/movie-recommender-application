@@ -1,9 +1,11 @@
 '''
 root module of the recommender app
 '''
+from logging import warning
+from re import U
 import pandas as pd
 from flask import Flask, request, render_template
-from recommendation import recommend_nmf, recommend_neighborhood
+from recommendation import recommend_nmf, recommend_neighborhood,  recommend_popular, recommend_random
 from utils import movies,  movie_title_search, movie_to_id, id_to_movie_title
 
 #where we define our Flask object to be used to render our views
@@ -22,32 +24,32 @@ def recommender():
     '''
     queries accessed and transformed into recommendations
     '''
-    print(request.args) # accesses the user query, prints in temrinal
+    # print(request.args) # accesses the user query, prints in temrinal
     # example query for the .getlist method: ?q=star+wars&q=godfather&q=get+shorty
     # accesses the user query as a list
     
     model = request.args.get('models')
 
     try:
-
-        user_query = request.args.getlist('movie')
-    
-   
+        user_query = request.args.getlist('movie_input')
         query = movie_title_search(user_query)
-        query = movie_to_id(query)
-
+        query = movie_to_id(query) 
         if model == 'nmf':
             recs = recommend_nmf(query, k=10)
         elif model == 'neighbor':
             recs = recommend_neighborhood(query, k=10)
+        elif model == 'popular':
+            recs = recommend_popular()
+        elif model == 'random':
+            recs = recommend_random(k=10)
         else:
             pass
-        recommended= id_to_movie_title(recs)
-        recommended= pd.DataFrame(recommended)
+        recommend= id_to_movie_title(recs)
+        recommended = pd.DataFrame(recommend)
     except ValueError:
-        print('The app only takes movie name')
+        ('The app only takes movie name')
 
-    return render_template('recommender.html', recommended= recommended, model=model)
+    return render_template('recommender.html', recommended = recommended, model = model, user_query = user_query)
 
 # parameterized URL
 @app.route('/movie/<int:movieId>')

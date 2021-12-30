@@ -7,8 +7,9 @@ import pandas as pd
 import pickle
 from thefuzz import fuzz, process
 
-ratings = pd.read_csv('../data/ml-latest-small/ratings.csv')
-movies =  pd.read_csv('../data/ml-latest-small/movies.csv')
+ratings = pd.read_csv('./data/ml-latest-small/ratings.csv')
+movies =  pd.read_csv('./data/ml-latest-small/movies.csv')
+
 
 # import nmf model
 with open('./nmf_recommender.pkl', 'rb') as file:

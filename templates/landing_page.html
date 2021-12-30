@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Welcome to my Movie reckommender app</h1> 
+<h1>Welcome to my movie recommender app</h1> 
 
     <div id="form">
-        <p>Hello, write your favourite movies here and get suggestion of similar movies :</p>
+        <p>Hello, write your favourite movies here and get suggestion of similar movies you can see:</p>
         <form action="{{url_for('recommender')  }}">
+            
             {% for i in range(3) %}
-            <input type="text" name="movie">
+            <input type="text" name="movie_input">
             <br>
             {% endfor %}
             <br>
@@ -15,6 +16,8 @@
             <select name="models" id="models">
                 <option value="nmf">Model based on ratings of similar movies </option>
                 <option value="neighbor">Model based on people who watch similar movies as you</option>
+                <option value="popular">Model based on popular movies</option>
+                <option value="random">Model that generates just random movies</option>
 
             </select>
         
@@ -22,9 +25,11 @@
             <button type="submit" value="volvo" name="model">Run with Volvo</button> -->
         
             <input type="submit">
+
+            
         </form>
 
-      
+
 
     </div> 
 
