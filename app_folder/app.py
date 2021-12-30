@@ -61,6 +61,8 @@ def movie_info(movieId):
     return render_template('movie_info.html', movie=movie, movieId=movieId) 
 
 
-if __name__ == '__main__':
-    # debug = True restarts servers after edits and prints verbose errors in terminal
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     # debug = True restarts servers after edits and prints verbose errors in terminal
+#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
