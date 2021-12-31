@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Here is how to make comments in html -->
+<!-- <h2>You picked the {{model}} model:</h2> -->
+<!-- the code below is jinja and renders 
+    the variable passed from application.py -->
+<br>
+<br>
+<br>
+<br>
+
+<ul>
+{% if user_query == ['', '', ''] %}
+    <h3>please, provide user input !!! </h3>
+{% else %}
+<h2>Based on the model you chose, these are your recommended movies:</h2>
+{% for index in recommended.index %}
+    <li><a href="{{url_for('movie_info', movieId = index)}}">{{recommended.loc[index][0] }}</a></li>
+{% else %}
+    <li><em>no movies found</em></li>
+{% endfor %}
+
+<h3>please click on each movie above to get more information </h3>
+
+{% endif %}
+ </ul>
+
+ 
+{% endblock %}
+
+
