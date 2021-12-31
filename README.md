@@ -1,5 +1,9 @@
 # movie-recommender-application
-This application takes movies from users and recommends movies based on several models
+This is flask application that recommends movies based on several models to users. 
 
-the us
+it takes users input and recommend movies that are either: similar to inoput movies, or simlar to movies other users see, or popular or random movies. 
+
+<video width="320" height="240" controls>
+  <source src="movie_recommender.mov" type="video/mov">
+</video>
 
