@@ -64,6 +64,6 @@ def movie_info(movieId):
 # if __name__ == '__main__':
 #     # debug = True restarts servers after edits and prints verbose errors in terminal
 #     app.run(debug=True)
-# if __name__ == "__main__":
-#     app.debug = True 
-#     app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    app.debug = True 
+    app.run(host='0.0.0.0', port= 8000)
