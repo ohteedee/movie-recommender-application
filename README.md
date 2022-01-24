@@ -1,8 +1,9 @@
 # movie-recommender-application
-I desgned this flask application to recommends movies based on several models. So, its mostly a clustering project. 
-Examples of algorithms that I used include ```k nearest neighbor``` which recommends based the type of movies seen by people who also saw your input movies and ``` non-negative matrix factorization algorithm``` which recommends movies that have similar features as your input movies.  
+I desgned this flask application to recommend movies based on several models. So, its mostly a clustering project.  
+The application takes users input and recommend movies that are either: similar to input movies, or simlar to movies other users see, or popular or random movies. 
 
-it takes users input and recommend movies that are either: similar to inoput movies, or simlar to movies other users see, or popular or random movies. 
+Examples of algorithms that I used include ```k nearest neighbor``` which is the model that recommends based the type of movies seen by people who also saw your input movies and ``` non-negative matrix factorization algorithm``` which recommends movies that have similar features as your input movies.  
+
 
 
 ### Below is the recommender in action
