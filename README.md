@@ -1,4 +1,4 @@
-# movie-recommender-application
+# Movie-recommender-application
 I desgned this flask application to recommend movies based on several models. So, its mostly a clustering project.  
 The application takes users input and recommend movies that are either: similar to input movies, or simlar to movies other users see, or popular or random movies. 
 
@@ -10,7 +10,7 @@ Examples of algorithms that I used include ```k nearest neighbor``` which is the
 
 ![](movie_recommender.gif)
 
-### information about the files 
+### Information about the files 
 ```app.py``` file is the main flask application file that contains all the the decorators needed to run and deploy the application. 
 ```recommendations.py``` contains functions to make rrecommendations with either of the four models used in the app. 
 ```utils.py``` contains functions imported into app.py. it contains code to load models, functions to take input and covert to movieId etc. 
